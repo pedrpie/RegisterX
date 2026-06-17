@@ -2,7 +2,7 @@
 #define USUARIO_H
 #include <string>
 
-struct Usuario {
+struct usuario {
 
     int id;
     std::string nome;
