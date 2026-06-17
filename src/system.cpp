@@ -1,5 +1,7 @@
 #include <iostream>
 #include <limits>
+#include <chrono>
+#include <thread>
 #include "../include/system.h"
 
 using namespace std;
@@ -31,6 +33,12 @@ void menu(){
 
         else if(option == 4){
             deletar();
+        }
+
+        else if(option == 5){
+            cout << "Saindo...\n" << endl;
+            this_thread::sleep_for(chrono::seconds(1)); // pausa de 1 segundo antes de sair do programa 
+            break;
         }
 
         else{
