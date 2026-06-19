@@ -1,9 +1,6 @@
 #include <iostream>
 #include <limits>
-#include <chrono>
-#include <thread>
-#include "../include/system.h"
-
+#include "UserService.h"
 using namespace std;
 
 void menu(){
@@ -20,45 +17,23 @@ void menu(){
         }
         
         if(option == 1){
-            cadastrar();
+            createUser();
         }
 
         else if(option == 2){
-            listar();
+            readUser();
         }
 
         else if(option == 3){
-            atualizar();
+            updateUser();
         }
 
         else if(option == 4){
-            deletar();
-        }
-
-        else if(option == 5){
-            cout << "Saindo...\n" << endl;
-            this_thread::sleep_for(chrono::seconds(1)); // pausa de 1 segundo antes de sair do programa 
-            break;
+            deleteUser();
         }
 
         else{
             cout << "Opção Inválida\n" << endl;
         }
     }
-}
-
-void cadastrar(){
-
-}
-
-void listar(){
-    
-}
-
-void atualizar(){
-    
-}
-
-void deletar(){
-    
 }
