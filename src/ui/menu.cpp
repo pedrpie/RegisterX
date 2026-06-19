@@ -1,5 +1,7 @@
 #include <iostream>
 #include <limits>
+#include <chrono>
+#include <thread>
 #include "UserService.h"
 using namespace std;
 
@@ -30,6 +32,12 @@ void menu(){
 
         else if(option == 4){
             deleteUser();
+        }
+
+        else if (option == 5) {
+            cout << "Saindo..." << endl;
+            this_thread::sleep_for(chrono::seconds(1));
+            break;
         }
 
         else{

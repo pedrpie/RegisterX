@@ -1,15 +1,16 @@
-#ifndef USUARIO_H
-#define USUARIO_H
+#ifndef USER_H
+#define USER_H
 #include <string>
+using namespace std;
 
-struct usuario {
+struct User {
 
     int id;
-    std::string nome;
+    string nome;
     int idade;
-    std::string mail;
-    int cpf;
-    std::string curso;
+    string mail;
+    double cpf;
+    string curso;
 
 };
 
