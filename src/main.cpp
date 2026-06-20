@@ -15,7 +15,5 @@ int main(){
     std::vector<User> users;
     menu(users);
 
-
-
     return 0;
 }

@@ -4,6 +4,7 @@
 #include <thread>
 #include "User.h"
 #include "UserService.h"
+
 int findUserById(const std::vector<User>& users, int id)    // Função para encontrar o índice do usuário pelo ID
 {
     for (int i = 0; i < users.size(); i++)
@@ -42,7 +43,7 @@ void createUser(std::vector<User>& users){
             maxId = users[i].id;
         }
     }
-    std::cout << "\n===== CREATE USER =====\n";
+    std::cout << "\n\33[35m===== CRIAR USUÁRIO =====\33[0m\n";
     newUser.id = maxId + 1;
     std::cout << "\nNome: ";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -68,13 +69,13 @@ void createUser(std::vector<User>& users){
 
 void readUser(const std::vector<User>& users){
 
-    std::cout << "\n===== USERS LIST =====\n";
+    std::cout << "\n\33[35m===== LISTAGEM DOS USUÁRIOS =====\33[0m\n";
     if(users.empty()){
         std::cout << "\nNenhum usuário cadastrado.\n" << std::endl;
         return;
     }
     else {
-        std::cout << "\nTotal users: "
+        std::cout << "\nTOTAL: "
         << users.size()
         << std::endl;
         for (int i = 0; i < users.size(); i++) {
@@ -112,20 +113,20 @@ void readUser(const std::vector<User>& users){
 void updateUser(std::vector<User>& users){
     int id;
 
-    std::cout << "\nEnter ID to update: ";
+    std::cout << "\nSelecione o ID para a atualização: ";
     std::cin >> id;
 
     int index = findUserById(users, id);
 
     if (index == -1)
     {
-        std::cout << "\nUser not found!\n";
+        std::cout << "\nUsuário não encontrado!\n" << std::endl;
         return;
     }
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << "\n===== UPDATE USER =====\n";
+    std::cout << "\n\33[35m===== ATUALIZAR USUÁRIO =====\33[0m\n" << std::endl;
 
     std::cout << "Nome do usuário a ser atualizado: " << users[index].nome << std::endl;   
     std::cout << "Novo nome: ";
@@ -159,20 +160,20 @@ void updateUser(std::vector<User>& users){
 void deleteUser(std::vector<User>& users){
     int id;
 
-    std::cout << "\n===== DELETE USER =====\n";
-    std::cout << "Enter ID: ";
+    std::cout << "\n\33[35m===== DELETAR USUÁRIO =====\33[0m\n" << std::endl;
+    std::cout << "Selecione o ID: ";
     std::cin >> id;
 
     int index = findUserById(users, id);
 
     if (index == -1)
     {
-        std::cout << "\nUser not found!\n";
+        std::cout << "\nUsuário não encontrado!\n";
         return;
     }
-    std::cout << "deleting User " << users[index].nome << " with ID " << users[index].id << std::endl;
+    std::cout << "Deletando Usuário " << users[index].nome << " com ID " << users[index].id << std::endl;
     users.erase(users.begin() + index);
 
-    std::cout <<"User deleted successfully!\n";
+    std::cout <<"\33[32mUsuário deletado com sucesso!\33[0m\n" << std::endl;
 
 }

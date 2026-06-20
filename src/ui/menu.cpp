@@ -11,9 +11,17 @@ void menu(vector<User>& users){
     int option;
 
     while(1){
-        cout << "RegisterX - Seu sistema de cadastro\n" << endl;
-        cout << "O que deseja?\n" << endl;
-        cout << "1 - Cadastrar \n2 - Listar\n3 - Atualizar\n4 - Deletar\n5 - Sair\n" << endl;
+        cout << "\033[36m";
+        cout << "===================================================" << endl;
+        cout << "  RegisterX - Seu Sistema de Registro de Usuários  " << endl;
+        cout << "===================================================";
+        cout << "\033[0m" << endl;
+
+        cout << "\nSelecione uma opção\n" << endl;
+
+        cout << "\33[33m";
+        cout << "1 - Cadastrar\n2 - Listar\n3 - Atualizar\n4 - Deletar\n0 - Sair\n";
+        cout << "\33[0m" << endl;
 
         if(!(cin >> option)){
             cin.clear();
@@ -36,7 +44,7 @@ void menu(vector<User>& users){
             deleteUser(users);
         }
 
-        else if (option == 5) {
+        else if (option == 0) {
             cout << "Saindo..." << endl;
             this_thread::sleep_for(chrono::seconds(1));
             break;
