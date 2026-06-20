@@ -1,4 +1,4 @@
-#include "../include/Sistema.h"
+#include "System.h"
 #include <iostream>
 #include <string>
 using namespace std;
