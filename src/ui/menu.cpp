@@ -1,11 +1,13 @@
+#include "Menu.h"
 #include <iostream>
 #include <limits>
 #include <chrono>
 #include <thread>
 #include "UserService.h"
+
 using namespace std;
 
-void menu(){
+void menu(vector<User>& users){
     int option;
 
     while(1){
@@ -19,19 +21,19 @@ void menu(){
         }
         
         if(option == 1){
-            createUser();
+            createUser(users);
         }
 
         else if(option == 2){
-            readUser();
+            readUser(users);
         }
 
         else if(option == 3){
-            updateUser();
+            updateUser(users);
         }
 
         else if(option == 4){
-            deleteUser();
+            deleteUser(users);
         }
 
         else if (option == 5) {

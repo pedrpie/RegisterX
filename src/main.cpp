@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "../include/Usuario.h"
-#include "../include/Sistema.h"
-#include "UserService.h"
-#include "./ui/menu.h"
+#include "User.h"   
+#include "Menu.h"
 using namespace std;
 
 int main(){
@@ -14,8 +12,8 @@ int main(){
     #endif
     //
 
-
-    menu();
+    std::vector<User> users;
+    menu(users);
 
 
 
