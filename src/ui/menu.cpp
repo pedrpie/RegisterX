@@ -45,7 +45,7 @@ void menu(vector<User>& users){
         }
 
         else if (option == 0) {
-            cout << "Saindo..." << endl;
+            cout << "\x1b[31mSaindo...\x1b[0m" << endl;
             this_thread::sleep_for(chrono::seconds(1));
             break;
         }
