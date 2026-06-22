@@ -1,9 +1,8 @@
 #include "System.h"
 #include <iostream>
 #include <string>
-using namespace std;
 
-void registerUser(vector<User>& users) {
+void registerUser(std::vector<User>& users) {
 
     User newUser;
 

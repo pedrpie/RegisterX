@@ -4,6 +4,7 @@
 #include <thread>
 #include "User.h"
 #include "UserService.h"
+#include "File.h"
 
 int findUserById(const std::vector<User>& users, int id)    // Função para encontrar o índice do usuário pelo ID
 {
@@ -65,6 +66,7 @@ void createUser(std::vector<User>& users){
     std::cout << "Curso: ";
     std::getline(std::cin, newUser.curso);
     users.push_back(newUser);
+    saveUsersToFile(users);
 }
 
 void readUser(const std::vector<User>& users){
@@ -155,6 +157,7 @@ void updateUser(std::vector<User>& users){
     std::getline(std::cin, users[index].curso);
 
     std::cout << "\nUser updated successfully!\n";
+    saveUsersToFile(users);
 }
 
 void deleteUser(std::vector<User>& users){
@@ -175,5 +178,5 @@ void deleteUser(std::vector<User>& users){
     users.erase(users.begin() + index);
 
     std::cout <<"\33[32mUsuário deletado com sucesso!\33[0m\n" << std::endl;
-
+    saveUsersToFile(users);
 }

@@ -2,6 +2,7 @@
 #include <vector>
 #include "User.h"   
 #include "Menu.h"
+#include "File.h"
 using namespace std;
 
 int main(){
@@ -11,8 +12,9 @@ int main(){
         system("chcp 65001 > nul");
     #endif
     //
-
+    
     std::vector<User> users;
+    loadUsersFromFile(users);
     menu(users);
 
     return 0;
