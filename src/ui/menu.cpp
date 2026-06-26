@@ -20,7 +20,7 @@ void menu(vector<User>& users){
         cout << "\nSelecione uma opção\n" << endl;
 
         cout << "\33[33m";
-        cout << "1 - Cadastrar\n2 - Listar\n3 - Atualizar\n4 - Deletar\n0 - Sair\n";
+        cout << "1 - Cadastrar\n2 - Listar\n3 - Ordenar\n4 - Atualizar\n5 - Deletar\n0 - Sair\n";
         cout << "\33[0m" << endl;
 
         if(!(cin >> option)){
@@ -33,14 +33,18 @@ void menu(vector<User>& users){
         }
 
         else if(option == 2){
-            readUser(users);
+            listUser(users);
         }
 
-        else if(option == 3){
-            updateUser(users);
+        else if(option == 3) {
+            sortUsersByName(users);
         }
 
         else if(option == 4){
+            updateUser(users);
+        }
+
+        else if(option == 5){
             deleteUser(users);
         }
 
@@ -53,5 +57,6 @@ void menu(vector<User>& users){
         else{
             cout << "Opção Inválida\n" << endl;
         }
+
     }
 }

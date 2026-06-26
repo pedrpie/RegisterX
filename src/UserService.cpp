@@ -6,7 +6,8 @@
 #include "UserService.h"
 #include "File.h"
 
-int findUserById(const std::vector<User>& users, int id)    // Função para encontrar o índice do usuário pelo ID
+//Funções auxiliares
+int findUserById(const std::vector<User>& users, int id) // Função para encontrar o índice do usuário pelo ID
 {
     for (int i = 0; i < users.size(); i++)
     {
@@ -32,6 +33,15 @@ bool isValidCPF(const std::string& cpf) // Função para validar o CPF
 
     return true;
 }
+
+int countUsersRecursive(const std::vector<User>& users, int index) //função recursiva para contar o número de usuários
+{ 
+    if (index == users.size())
+        return 0;
+
+    return 1 + countUsersRecursive(users, index + 1);
+}
+
 
 // funções principais de CRUD para os usuários
 
@@ -69,7 +79,7 @@ void createUser(std::vector<User>& users){
     saveUsersToFile(users);
 }
 
-void readUser(const std::vector<User>& users){
+void listUser(const std::vector<User>& users){
 
     std::cout << "\n\33[35m===== LISTAGEM DOS USUÁRIOS =====\33[0m\n";
     if(users.empty()){
@@ -78,7 +88,7 @@ void readUser(const std::vector<User>& users){
     }
     else {
         std::cout << "\nTOTAL: "
-        << users.size()
+        << countUsersRecursive(users, 0)
         << std::endl;
         for (int i = 0; i < users.size(); i++) {
             std::cout << "\nUsuário " << i + 1 << std::endl;
@@ -110,6 +120,25 @@ void readUser(const std::vector<User>& users){
 
     }
     std::cout << std::endl;
+}
+
+void sortUsersByName(std::vector<User>& users) {
+    std::cout << "\n\33[35m===== ORDENAÇÃO DOS USUÁRIOS =====\33[0m\n";
+    if(users.empty()){
+        std::cout << "\nNenhum usuário cadastrado.\n" << std::endl;
+        return;
+    }
+
+    else {
+        for (int i = 0; i < users.size() - 1; i++){
+            for (int j = 0; j < users.size() - i - 1; j++){
+                if (users[j].nome > users[j + 1].nome){
+                    std::swap(users[j], users[j + 1]);
+                }
+            }
+        }
+    std::cout << "\n\33[32mUsuários ordenados por nome com sucesso!\33[0m\n" << std::endl;
+    }
 }
 
 void updateUser(std::vector<User>& users){
