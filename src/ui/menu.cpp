@@ -8,9 +8,9 @@
 using namespace std;
 
 void menu(vector<User>& users){
-    int option;
+    char option;
 
-    while(1){
+    while(true){
         cout << "\033[36m";
         cout << "===================================================" << endl;
         cout << "  RegisterX - Seu Sistema de Registro de Usuários  " << endl;
@@ -23,39 +23,37 @@ void menu(vector<User>& users){
         cout << "1 - Cadastrar\n2 - Listar\n3 - Ordenar\n4 - Atualizar\n5 - Deletar\n0 - Sair\n";
         cout << "\33[0m" << endl;
 
-        if(!(cin >> option)){
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-        
-        if(option == 1){
-            createUser(users);
-        }
+        cin >> option;
 
-        else if(option == 2){
-            listUser(users);
-        }
+        switch(option){
+            case '1':
+                createUser(users);
+                break;
 
-        else if(option == 3) {
-            sortUsersByName(users);
-        }
+            case '2':
+                listUser(users);
+                break;
 
-        else if(option == 4){
-            updateUser(users);
-        }
+            case '3':
+                sortUsersByName(users);
+                break;
 
-        else if(option == 5){
-            deleteUser(users);
-        }
+            case '4':
+                updateUser(users);
+                break;
 
-        else if (option == 0) {
-            cout << "\x1b[31mSaindo...\x1b[0m" << endl;
-            this_thread::sleep_for(chrono::seconds(1));
-            break;
-        }
+            case '5':
+                deleteUser(users);
 
-        else{
-            cout << "Opção Inválida\n" << endl;
+            case '0':
+                cout << "\x1b[31mSaindo...\x1b[0m" << endl;
+                this_thread::sleep_for(chrono::seconds(1));
+                break;
+
+            default:
+                cout << "\nOpção inválida\n" << endl;
+                this_thread::sleep_for(chrono::seconds(1));
+
         }
 
     }
