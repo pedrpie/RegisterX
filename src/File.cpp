@@ -32,7 +32,7 @@ void loadUsersFromFile(std::vector<User>& users) {
     std::ifstream file("src/database/Users.txt");
 
     if (!file.is_open()) {
-        std::cout << "\x1b[31mNão foi possível abrir o arquivo para leitura.\x1b[0m" << std::endl;
+        std::cout << "\x1b[31mNão foi possível abrir o arquivo para leitura ou o arquivo está vazio.\x1b[0m" << std::endl;
         return;
     }
 

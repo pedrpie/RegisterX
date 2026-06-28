@@ -42,6 +42,19 @@ int countUsersRecursive(const std::vector<User>& users, int index) //função re
     return 1 + countUsersRecursive(users, index + 1);
 }
 
+bool isValidAge(const std::string& idadeStr)
+{
+    if (idadeStr.empty())
+        return false;
+
+    for (char c : idadeStr)
+    {
+        if (!isdigit(c))
+            return false;
+    }
+
+    return true;
+}
 
 // funções principais de CRUD para os usuários
 
@@ -60,8 +73,16 @@ void createUser(std::vector<User>& users){
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, newUser.nome);
 
+    std::string idadeStr;
     std::cout << "Idade: ";
-    std::cin >> newUser.idade;
+    std::getline(std::cin, idadeStr);
+    while (!isValidAge(idadeStr))
+    {
+        std::cout << "Idade inválida. Digite apenas números: ";
+        std::getline(std::cin, idadeStr);
+    }
+
+newUser.idade = std::stoi(idadeStr);
 
     std::cout << "Email: ";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -165,9 +186,16 @@ void updateUser(std::vector<User>& users){
 
     std::cout << "idade do usuário a ser atualizado: " << users[index].idade << std::endl;
     std::cout << "Nova idade: ";
-    std::cin >> users[index].idade;
+    std::string idadeStr;
+    std::getline(std::cin, idadeStr);
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    while (!isValidAge(idadeStr))
+    {
+        std::cout << "Idade inválida. Digite apenas números: ";
+        std::getline(std::cin, idadeStr);
+    }
+
+    users[index].idade = std::stoi(idadeStr);
 
     std::cout << "email do usuário a ser atualizado: " << users[index].email << std::endl;
     std::cout << "Novo email: ";
