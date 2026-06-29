@@ -5,7 +5,7 @@
 
 void saveUsersToFile(const std::vector<User>& users) {
 
-    
+
     try 
     {
         std::ofstream file("src/database/Users.txt");

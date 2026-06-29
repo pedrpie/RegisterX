@@ -85,7 +85,6 @@ void createUser(std::vector<User>& users){
 newUser.idade = std::stoi(idadeStr);
 
     std::cout << "Email: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, newUser.email);
 
     std::cout << "CPF: ";
