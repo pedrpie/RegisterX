@@ -36,6 +36,7 @@ void menu(vector<User>& users){
 
             case '3':
                 sortUsersByName(users);
+                listUser(users);
                 break;
 
             case '4':

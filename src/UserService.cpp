@@ -212,7 +212,7 @@ void updateUser(std::vector<User>& users){
     std::cout << "Novo curso: ";
     std::getline(std::cin, users[index].curso);
 
-    std::cout << "\nUser updated successfully!\n";
+    std::cout << "\nUsuário atualizado com sucesso!\n";
     saveUsersToFile(users);
 }
 
